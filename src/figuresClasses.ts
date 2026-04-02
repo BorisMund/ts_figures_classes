@@ -1,15 +1,22 @@
 export interface Figure {
   color: string;
+
   getArea(): number;
+
   shape: string;
 }
 
 export class Triangle implements Figure {
   color: string;
+
   a: number;
+
   b: number;
+
   c: number;
+
   shape: string = 'triangle';
+
   constructor(color: string, a: number, b: number, c: number) {
     this.color = color;
     this.a = a;
@@ -24,9 +31,10 @@ export class Triangle implements Figure {
       throw new Error("'your error message'");
     }
   }
+
   getArea(): number {
-    let perimetr = (this.a + this.b + this.c) / 2;
-    let square = Math.sqrt(
+    const perimetr = (this.a + this.b + this.c) / 2;
+    const square = Math.sqrt(
       perimetr *
         (perimetr - this.a) *
         (perimetr - this.b) *
@@ -39,7 +47,9 @@ export class Triangle implements Figure {
 
 export class Circle implements Figure {
   color: string;
+
   radius: number;
+
   shape: string = 'circle';
 
   constructor(color: string, radius: number) {
@@ -50,6 +60,7 @@ export class Circle implements Figure {
       throw new Error('your error message');
     }
   }
+
   getArea(): number {
     const area = Math.PI * this.radius * this.radius;
 
@@ -59,8 +70,11 @@ export class Circle implements Figure {
 
 export class Rectangle implements Figure {
   color: string;
+
   width: number;
+
   height: number;
+
   shape: string = 'rectangle';
 
   constructor(color: string, width: number, height: number) {
@@ -72,8 +86,9 @@ export class Rectangle implements Figure {
       throw new Error('your error message');
     }
   }
+
   getArea(): number {
-    let res = this.width * this.height;
+    const res = this.width * this.height;
 
     return Math.floor(res * 100) / 100;
   }
