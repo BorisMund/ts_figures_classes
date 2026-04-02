@@ -7,28 +7,22 @@ export interface Figure {
 }
 
 export class Triangle implements Figure {
-  color: string;
-
-  a: number;
-
-  b: number;
-
-  c: number;
-
   shape: string = 'triangle';
 
-  constructor(color: string, a: number, b: number, c: number) {
-    this.color = color;
-    this.a = a;
-    this.b = b;
-    this.c = c;
-
+  constructor(
+    public color: string,
+    public a: number,
+    public b: number,
+    public c: number,
+  ) {
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('your error message');
+      throw new Error('All sides must be greater than 0');
     }
 
     if (a + b <= c || a + c <= b || b + c <= a) {
-      throw new Error("'your error message'");
+      throw new Error(
+        'Invalid triangle: sum of any two sides must be greater than the third',
+      );
     }
   }
 
@@ -46,18 +40,14 @@ export class Triangle implements Figure {
 }
 
 export class Circle implements Figure {
-  color: string;
+  shape = 'circle';
 
-  radius: number;
-
-  shape: string = 'circle';
-
-  constructor(color: string, radius: number) {
-    this.color = color;
-    this.radius = radius;
-
+  constructor(
+    public color: string,
+    public radius: number,
+  ) {
     if (radius <= 0) {
-      throw new Error('your error message');
+      throw new Error('Radius must be greater than 0');
     }
   }
 
@@ -69,21 +59,15 @@ export class Circle implements Figure {
 }
 
 export class Rectangle implements Figure {
-  color: string;
+  shape = 'rectangle';
 
-  width: number;
-
-  height: number;
-
-  shape: string = 'rectangle';
-
-  constructor(color: string, width: number, height: number) {
-    this.color = color;
-    this.width = width;
-    this.height = height;
-
+  constructor(
+    public color: string,
+    public width: number,
+    public height: number,
+  ) {
     if (width <= 0 || height <= 0) {
-      throw new Error('your error message');
+      throw new Error('Width and height must be greater than 0');
     }
   }
 
